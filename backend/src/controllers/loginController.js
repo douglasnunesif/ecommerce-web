@@ -12,7 +12,10 @@ exports.login = async (req, res) => {
         message: "Usuário não encontrado",
       });
     }
-    if (user.password !== password) {
+    console.log("Senha fornecida:", password);
+    console.log("Senha armazenada no banco de dados:", user.senha);
+
+    if (user.senha !== password) {
       return res.status(401).json({
         message: "Senha incorreta",
       });
